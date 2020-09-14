@@ -20,7 +20,7 @@ pipeline{
         stage('Deplot_to_Tomcat'){
             steps{
                 sshagent(['tomcat']){
-                    sh 'sudo su - ;scp -o StrictHostKeyChecking=no target/*.war ec2-user@ip-172-31-89-23:/opt/apache-tomcat-8.5.57/webapps/webapps.war'
+                    sh 'scp -o StrictHostKeyChecking=no target/*.war ec2-user@ip-172-31-89-23:/opt/apache-tomcat-8.5.57/webapps/webapps.war'
                 }
             }
         }
