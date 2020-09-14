@@ -5,7 +5,7 @@ pipeline{
     }
     stages{
         stage('Initialize'){
-            stpes{
+            steps{
                 sh '''
                     echo "$PATH"
                     echo "$JAVA_HOME"
