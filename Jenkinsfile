@@ -12,6 +12,12 @@ pipeline{
                 '''
             }
         }
+        stage('Check_Git_secrets'){
+            steps{
+                sh 'rm trufflehog || true'
+                sh 'docker run -t gesellix/trufflehog --json https://github.com/offsecdawn/webapp.git > trufflehog'
+            }
+        }
         stage('Build'){
             steps{
                 sh 'mvn clean install package'
